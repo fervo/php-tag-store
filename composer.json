@@ -1,0 +1,19 @@
+{
+    "name": "phptagstore/phptagstore",
+    "description": "The monorepo for PhpTagStore",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Magnus Nordlander",
+            "email": "magnus@fervo.se"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PhpTagStore\\": "src/"
+        }
+    },
+    "require": {
+    }
+}

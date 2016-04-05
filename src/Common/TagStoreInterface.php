@@ -5,37 +5,37 @@ namespace PhpTagStore\Common;
 interface TagStoreInterface
 {
     /**
-     * Associate the given tags to cache item identified by $cacheId.
+     * Associate the given tags to cache item identified by $itemId.
      *
      * Example: associate a HTTP cache identifier (e.g. a content-digest in the
      *          case of the Symfony HTTP cache) with a set of tags.
      *
-     * @param integer $cacheId
+     * @param integer $itemId
      * @param string[] $tags
      */
-    public function tagCacheId($cacheId, array $tags);
+    public function tagItemId($itemId, array $tags);
 
     /**
-     * Unassociate the given tags from the cache item identified by $cacheId.
+     * Unassociate the given tags from the cache item identified by $itemId.
      *
      * NOTE: This is difficult for an so-called "cache based" implementation, is it necessary?
      *
-     * @param integer $cacheId
+     * @param integer $itemId
      * @param string[] $tags
      */
-    public function untagCacheId($cacheId, array $tags);
+    public function untagItemId($itemId, array $tags);
 
     /**
-     * Retrieve all tags which are associated with the given $cacheIds.
+     * Retrieve all tags which are associated with the given $itemIds.
      *
      * NOTE: This is not-performant for an so-called "cache based"
      *       implementation, is it necessary? In what situations would this be
      *       useful
      *
-     * @param string[] $cacheIds
+     * @param string[] $itemIds
      * @return string[]
      */
-    public function getTagsForCacheIds(array $cacheIds);
+    public function getTagsForItemIds(array $itemIds);
 
     /**
      * Retrieve all cache identifiers associated with the given $tags.
@@ -45,7 +45,7 @@ interface TagStoreInterface
      *
      * @param string[] $tags
      */
-    public function getCacheIdsWithTags(array $tags);
+    public function getItemIdsWithTags(array $tags);
 
     /**
      * Remove the given tags (and they're cache identifier associations) from
@@ -65,12 +65,5 @@ interface TagStoreInterface
      *
      * Example?
      */
-    public function removeCacheIds(array $cacheId);
-
-    /**
-     * Remove all tags from the tag store.
-     *
-     * Example?
-     */
-    public function purgeTags();
+    public function removeItemIds(array $itemId);
 }
